@@ -10,11 +10,11 @@ from src.manage_db import ManageDB
 if __name__ == '__main__':
 
     # Database params
-    dbname = 'postgresdb'
+    dbname = 'data'
     host = 'localhost'
     port = 5432
     user = 'postgres'
-    password = '12345'
+    password = 'postgres'
 
     # Connect to database
     postgres = ManageDB(
@@ -23,7 +23,7 @@ if __name__ == '__main__':
     postgres.connect()
 
     # Create new table
-    table = 'CORALDATA'
+    table = 'data'
     columns = {
         'id': 'text PRIMARY KEY',
         't': 'text',
