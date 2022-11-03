@@ -31,32 +31,11 @@ map:patient a rr:TriplesMap;
     rr:subjectMap [
         rr:template "patient/{id}";
         rr:class ncit:C16960; #patient
-    ].
-
-###########################################
-# Add identifier
-###########################################
-map:identifier a rr:TriplesMap;
-    rr:logicalTable map:patientQuery;
-    rr:subjectMap [
-        rr:template "patient/{id}/";
-        rr:class ncit:C25364; #identifier
     ];
     rr:predicateObjectMap [
-        rr:predicate roo:P100042; #has_value
+        rr:predicate roo:P100061; #has_person_identifier
         rr:objectMap [
             rr:column "id";
             rr:datatype xsd:string;
-        ];
-    ].
-
-map:patient rr:predicateObjectMap [
-        rr:predicate roo:P100061; #has_person_identifier
-        rr:objectMap [
-            rr:parentTriplesMap map:identifier;
-            rr:joinCondition [
-                rr:child "id";
-                rr:parent "id";
-            ];
         ];
     ].

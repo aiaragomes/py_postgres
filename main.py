@@ -12,7 +12,7 @@ if __name__ == '__main__':
     # Database params
     dbname = 'data'
     host = 'localhost'
-    port = 5432
+    port = 5431
     user = 'postgres'
     password = 'postgres'
 
