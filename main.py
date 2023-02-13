@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-FAIRification data pipeline
+Inserting data to postgres
 """
 
 from src.manage_db import ManageDB
@@ -10,6 +10,8 @@ from src.manage_db import ManageDB
 if __name__ == '__main__':
 
     # Database params
+    # TODO: this info should be retrieved from env vars or a file that is not
+    #  commited to git
     dbname = 'data'
     host = 'localhost'
     port = 5431
@@ -37,7 +39,7 @@ if __name__ == '__main__':
     postgres.create_table(table=table, columns=columns)
 
     # Prepare data
-    file_path = 'data/20k_sample_data.csv'
+    file_path = 'data/sample_data.csv'
     df = postgres.prepare_data(file_path=file_path, columns=columns.keys())
 
     # Insert data to table
